@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C3BCBCD1EDC8B1C00E7B63B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCBCC1EDC8B1C00E7B63B /* AppDelegate.swift */; };
-		8C3BCBCF1EDC8B1C00E7B63B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCBCE1EDC8B1C00E7B63B /* ViewController.swift */; };
+		8C3BCBCF1EDC8B1C00E7B63B /* PersistChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCBCE1EDC8B1C00E7B63B /* PersistChatController.swift */; };
 		8C3BCBDA1EDC8B1C00E7B63B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C3BCBD81EDC8B1C00E7B63B /* LaunchScreen.storyboard */; };
 		8C3BCC0C1EDCB43200E7B63B /* FriendsControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCC0B1EDCB43200E7B63B /* FriendsControllerHelper.swift */; };
 		8C3BCC2A1EDCDA8000E7B63B /* PersistChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCC281EDCDA8000E7B63B /* PersistChat.xcdatamodeld */; };
@@ -24,7 +24,7 @@
 /* Begin PBXFileReference section */
 		8C3BCBC91EDC8B1C00E7B63B /* PersistChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersistChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C3BCBCC1EDC8B1C00E7B63B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C3BCBCE1EDC8B1C00E7B63B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8C3BCBCE1EDC8B1C00E7B63B /* PersistChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistChatController.swift; sourceTree = "<group>"; };
 		8C3BCBD91EDC8B1C00E7B63B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C3BCBDB1EDC8B1C00E7B63B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C3BCC0B1EDCB43200E7B63B /* FriendsControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsControllerHelper.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				8C3BCBCC1EDC8B1C00E7B63B /* AppDelegate.swift */,
-				8C3BCBCE1EDC8B1C00E7B63B /* ViewController.swift */,
+				8C3BCBCE1EDC8B1C00E7B63B /* PersistChatController.swift */,
 				8C3BCBD81EDC8B1C00E7B63B /* LaunchScreen.storyboard */,
 				8C3BCBDB1EDC8B1C00E7B63B /* Info.plist */,
 				8C3BCC371EDDB93500E7B63B /* Assets.xcassets */,
@@ -158,7 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C3BCC341EDD01B900E7B63B /* ChatLogController.swift in Sources */,
-				8C3BCBCF1EDC8B1C00E7B63B /* ViewController.swift in Sources */,
+				8C3BCBCF1EDC8B1C00E7B63B /* PersistChatController.swift in Sources */,
 				8C3BCC361EDD089400E7B63B /* CustomTabBarController.swift in Sources */,
 				8C3BCC2F1EDCDB1100E7B63B /* Friend+CoreDataClass.swift in Sources */,
 				8C3BCBCD1EDC8B1C00E7B63B /* AppDelegate.swift in Sources */,

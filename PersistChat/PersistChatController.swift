@@ -7,12 +7,45 @@
 //
 
 import UIKit
+import CoreData
 
-class PersistChatController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class PersistChatController: UICollectionViewController, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate {
     
     private let cellId = "cellId"
     
-    var messages: [Message]?
+//    var messages: [Message]?
+    
+    lazy var fetchResultsController: NSFetchedResultsController<Friend> = {
+        let fetchRequest = NSFetchRequest<Friend>(entityName: "Friend")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "lastMessage.date", ascending: false)]
+        fetchRequest.predicate = NSPredicate(format: "lastMessage != nil")
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        return frc
+    }()
+    
+    var blockOperations = [BlockOperation]()
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        if type == .insert {
+            blockOperations.append(BlockOperation(block: {
+                self.collectionView?.insertItems(at: [newIndexPath!])
+            }))
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        collectionView?.performBatchUpdates({
+            for operation in self.blockOperations {
+                operation.start()
+            }
+        }, completion: { (completed) in
+            let indexPath = IndexPath(item: 0, section: 0)
+            self.collectionView?.scrollToItem(at: indexPath, at: .top, animated: true)
+        })
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,10 +63,35 @@ class PersistChatController: UICollectionViewController, UICollectionViewDelegat
         collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: cellId)
         
         setupData()
+        
+        do {
+            try fetchResultsController.performFetch()
+        } catch let err {
+            print(err)
+        }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+ New 💬", style: .plain, target: self, action: #selector(addNewFriendChats))
+        
+    }
+    
+    func addNewFriendChats() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let evan = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+        evan.name = "Evan McMullin"
+        evan.profileImageName = "evanmcmullin"
+        
+        _ = PersistChatController.createMessageWithText(text: "Trump is vacationing in Russia!", friend: evan, minutesAgo: 0, context: context)
+        
+        let nick = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+        nick.name = "Nick Perkins"
+        nick.profileImageName = "nick_profile"
+        
+        _ = PersistChatController.createMessageWithText(text: "How did I do with Core Data?", friend: nick, minutesAgo: 0, context: context)
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let count = messages?.count {
+        if let count = fetchResultsController.sections?[section].numberOfObjects {
             return count
         }
         return 0
@@ -42,9 +100,9 @@ class PersistChatController: UICollectionViewController, UICollectionViewDelegat
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MessageCell
         
-        if let message = messages?[indexPath.item] {
-            cell.message = message
-        }
+        let friend = fetchResultsController.object(at: indexPath) 
+        
+        cell.message = friend.lastMessage
         
         return cell
     }
@@ -56,7 +114,8 @@ class PersistChatController: UICollectionViewController, UICollectionViewDelegat
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let layout = UICollectionViewFlowLayout()
         let controller = ChatLogController(collectionViewLayout: layout)
-        controller.friend = messages?[indexPath.item].friend
+        let friend = fetchResultsController.object(at: indexPath)
+        controller.friend = friend
         navigationController?.pushViewController(controller, animated: true)
     }
     
