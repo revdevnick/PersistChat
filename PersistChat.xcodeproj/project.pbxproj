@@ -17,6 +17,7 @@
 		8C3BCC301EDCDB1100E7B63B /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCC2C1EDCDB1100E7B63B /* Friend+CoreDataProperties.swift */; };
 		8C3BCC311EDCDB1100E7B63B /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCC2D1EDCDB1100E7B63B /* Message+CoreDataClass.swift */; };
 		8C3BCC321EDCDB1100E7B63B /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCC2E1EDCDB1100E7B63B /* Message+CoreDataProperties.swift */; };
+		8C3BCC341EDD01B900E7B63B /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCC331EDD01B900E7B63B /* ChatLogController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8C3BCC2C1EDCDB1100E7B63B /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8C3BCC2D1EDCDB1100E7B63B /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8C3BCC2E1EDCDB1100E7B63B /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8C3BCC331EDD01B900E7B63B /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,17 +66,18 @@
 		8C3BCBCB1EDC8B1C00E7B63B /* PersistChat */ = {
 			isa = PBXGroup;
 			children = (
-				8C3BCC2B1EDCDB1100E7B63B /* Friend+CoreDataClass.swift */,
-				8C3BCC2C1EDCDB1100E7B63B /* Friend+CoreDataProperties.swift */,
-				8C3BCC2D1EDCDB1100E7B63B /* Message+CoreDataClass.swift */,
-				8C3BCC2E1EDCDB1100E7B63B /* Message+CoreDataProperties.swift */,
 				8C3BCBCC1EDC8B1C00E7B63B /* AppDelegate.swift */,
 				8C3BCBCE1EDC8B1C00E7B63B /* ViewController.swift */,
 				8C3BCBD61EDC8B1C00E7B63B /* Assets.xcassets */,
 				8C3BCBD81EDC8B1C00E7B63B /* LaunchScreen.storyboard */,
 				8C3BCBDB1EDC8B1C00E7B63B /* Info.plist */,
-				8C3BCC0B1EDCB43200E7B63B /* FriendsControllerHelper.swift */,
 				8C3BCC281EDCDA8000E7B63B /* PersistChat.xcdatamodeld */,
+				8C3BCC0B1EDCB43200E7B63B /* FriendsControllerHelper.swift */,
+				8C3BCC2B1EDCDB1100E7B63B /* Friend+CoreDataClass.swift */,
+				8C3BCC2C1EDCDB1100E7B63B /* Friend+CoreDataProperties.swift */,
+				8C3BCC2D1EDCDB1100E7B63B /* Message+CoreDataClass.swift */,
+				8C3BCC2E1EDCDB1100E7B63B /* Message+CoreDataProperties.swift */,
+				8C3BCC331EDD01B900E7B63B /* ChatLogController.swift */,
 			);
 			path = PersistChat;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C3BCC341EDD01B900E7B63B /* ChatLogController.swift in Sources */,
 				8C3BCBCF1EDC8B1C00E7B63B /* ViewController.swift in Sources */,
 				8C3BCC2F1EDCDB1100E7B63B /* Friend+CoreDataClass.swift in Sources */,
 				8C3BCBCD1EDC8B1C00E7B63B /* AppDelegate.swift in Sources */,

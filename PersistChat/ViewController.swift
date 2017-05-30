@@ -48,6 +48,13 @@ class PersistChatController: UICollectionViewController, UICollectionViewDelegat
         return CGSize(width: view.frame.width, height: 100)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let layout = UICollectionViewFlowLayout()
+        let controller = ChatLogController(collectionViewLayout: layout)
+        controller.friend = messages?[indexPath.item].friend
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }
 
 class MessageCell: BaseCell {
