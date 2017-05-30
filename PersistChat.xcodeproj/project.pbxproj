@@ -18,6 +18,7 @@
 		8C3BCC311EDCDB1100E7B63B /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCC2D1EDCDB1100E7B63B /* Message+CoreDataClass.swift */; };
 		8C3BCC321EDCDB1100E7B63B /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCC2E1EDCDB1100E7B63B /* Message+CoreDataProperties.swift */; };
 		8C3BCC341EDD01B900E7B63B /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCC331EDD01B900E7B63B /* ChatLogController.swift */; };
+		8C3BCC361EDD089400E7B63B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BCC351EDD089300E7B63B /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8C3BCC2D1EDCDB1100E7B63B /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8C3BCC2E1EDCDB1100E7B63B /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8C3BCC331EDD01B900E7B63B /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		8C3BCC351EDD089300E7B63B /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				8C3BCC2D1EDCDB1100E7B63B /* Message+CoreDataClass.swift */,
 				8C3BCC2E1EDCDB1100E7B63B /* Message+CoreDataProperties.swift */,
 				8C3BCC331EDD01B900E7B63B /* ChatLogController.swift */,
+				8C3BCC351EDD089300E7B63B /* CustomTabBarController.swift */,
 			);
 			path = PersistChat;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			files = (
 				8C3BCC341EDD01B900E7B63B /* ChatLogController.swift in Sources */,
 				8C3BCBCF1EDC8B1C00E7B63B /* ViewController.swift in Sources */,
+				8C3BCC361EDD089400E7B63B /* CustomTabBarController.swift in Sources */,
 				8C3BCC2F1EDCDB1100E7B63B /* Friend+CoreDataClass.swift in Sources */,
 				8C3BCBCD1EDC8B1C00E7B63B /* AppDelegate.swift in Sources */,
 				8C3BCC2A1EDCDA8000E7B63B /* PersistChat.xcdatamodeld in Sources */,

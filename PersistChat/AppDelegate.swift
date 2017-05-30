@@ -21,9 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let layout = UICollectionViewFlowLayout()
-        let persistChatController = PersistChatController(collectionViewLayout: layout)
-        window?.rootViewController = UINavigationController(rootViewController: persistChatController)
+        window?.rootViewController = CustomTabBarController()
         
         return true
     }
