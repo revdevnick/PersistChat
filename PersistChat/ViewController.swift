@@ -220,6 +220,6 @@ class BaseCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        backgroundColor = UIColor.blue
+        
     }
 }

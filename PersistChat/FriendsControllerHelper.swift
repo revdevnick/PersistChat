@@ -74,8 +74,8 @@ extension PersistChatController {
             james.profileImageName = "jamesgunn"
             
             createMessageWithText(text: "Good morning...", friend: james, minutesAgo: 3, context: context)
-            createMessageWithText(text: "Hello, how are you?", friend: james, minutesAgo: 2, context: context)
-            createMessageWithText(text: "Have you seen GOTGV2 yet?", friend: james, minutesAgo: 1, context: context)
+            createMessageWithText(text: "Hello, how are you? I hope you're having a fine day.", friend: james, minutesAgo: 2, context: context)
+            createMessageWithText(text: "Just finished GOTGV2! I put three years of blood, sweat and tears into this movie to make it awesome! You're going to love Baby Groot's dialogue.", friend: james, minutesAgo: 1, context: context)
             
             let craig = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             craig.name = "Craig Federighi"
