@@ -48,13 +48,59 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     
     func handleSend() {
         
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let context = delegate.persistentContainer.viewContext
         
+        let message = PersistChatController.createMessageWithText(text: inputTextField.text!, friend: friend!, minutesAgo: 0, context: context, isSender: true)
+        
+        do {
+            try(context.save())
+            messages?.append(message)
+            
+            let item = messages!.count - 1
+            let insertionIndexPath = IndexPath(item: item, section: 0)
+            
+            collectionView?.insertItems(at: [insertionIndexPath])
+            collectionView?.scrollToItem(at: insertionIndexPath, at: .bottom, animated: true)
+            inputTextField.text = nil
+            
+        } catch let err {
+            print(err)
+        }
     }
     
     var bottomConstraint: NSLayoutConstraint?
     
+    func simulateReceiveMessage() {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let context = delegate.persistentContainer.viewContext
+        
+        let message = PersistChatController.createMessageWithText(text: "Here's a text message that was sent a few minutes ago...", friend: friend!, minutesAgo: 1, context: context)
+        
+        do {
+            try(context.save())
+            
+            messages?.append(message)
+            
+            messages = messages?.sorted(by: {$0.date!.compare($1.date! as Date) == .orderedAscending})
+            
+            if let item = messages?.index(of: message) {
+                let receivingIndexPath = IndexPath(item: item, section: 0)
+                collectionView?.insertItems(at: [receivingIndexPath])
+            }
+            
+            
+        } catch let err {
+            print(err)
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simulate 💬", style: .plain, target: self, action: #selector(simulateReceiveMessage))
+        
         tabBarController?.tabBar.isHidden = true
         
         collectionView?.backgroundColor = UIColor.white
