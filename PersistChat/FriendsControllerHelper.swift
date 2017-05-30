@@ -69,13 +69,7 @@ extension PersistChatController {
             message.text = "Hello, my name is Mark. Nice to meet you..."
             message.date = NSDate()
             
-            let james = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
-            james.name = "James Gunn"
-            james.profileImageName = "jamesgunn"
-            
-            createMessageWithText(text: "Good morning...", friend: james, minutesAgo: 3, context: context)
-            createMessageWithText(text: "Hello, how are you? I hope you're having a fine day.", friend: james, minutesAgo: 2, context: context)
-            createMessageWithText(text: "Just finished GOTGV2! I put three years of blood, sweat and tears into this movie to make it awesome! You're going to love Baby Groot's dialogue.", friend: james, minutesAgo: 1, context: context)
+            createJamesMessagesWithContext(context: context)
             
             let craig = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             craig.name = "Craig Federighi"
@@ -106,11 +100,27 @@ extension PersistChatController {
         loadData()
     }
     
-    private func createMessageWithText(text: String, friend: Friend, minutesAgo: Double, context: NSManagedObjectContext) {
+    private func createJamesMessagesWithContext(context: NSManagedObjectContext) {
+        let james = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+        james.name = "James Gunn"
+        james.profileImageName = "jamesgunn"
+        
+        createMessageWithText(text: "Good morning...", friend: james, minutesAgo: 3, context: context)
+        createMessageWithText(text: "Hello, how are you? I hope you're having a fine day.", friend: james, minutesAgo: 2, context: context)
+        createMessageWithText(text: "Just finished GOTGV2! I put three years of blood, sweat and tears into this movie to make it awesome! You're going to love Baby Groot's dialogue.", friend: james, minutesAgo: 1, context: context)
+        createMessageWithText(text: "Have you seen the movie?", friend: james, minutesAgo: 1, context: context)
+        createMessageWithText(text: "Yes! I have seen Guardians Vol 2. It was awesome.", friend: james, minutesAgo: 1, context: context, isSender: true)
+        createMessageWithText(text: "What was your favorite segment of the film?", friend: james, minutesAgo: 1, context: context)
+        createMessageWithText(text: "Peter and Yondu's dialogue at the end. ''I'm Mary Poppins yall!'', was my favorite line. 😂", friend: james, minutesAgo: 1, context: context, isSender: true)
+        
+    }
+    
+    private func createMessageWithText(text: String, friend: Friend, minutesAgo: Double, context: NSManagedObjectContext, isSender: Bool = false) {
         let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         message.friend = friend
         message.text = text
         message.date = NSDate().addingTimeInterval(-minutesAgo * 60)
+        message.isSender = isSender
     }
     
     func loadData() {

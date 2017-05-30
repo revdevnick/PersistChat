@@ -2,7 +2,7 @@
 //  Message+CoreDataProperties.swift
 //  PersistChat
 //
-//  Created by Nick Perkins on 5/29/17.
+//  Created by Nick Perkins on 5/30/17.
 //  Copyright © 2017 Nicholas Perkins. All rights reserved.
 //
 
@@ -18,6 +18,7 @@ extension Message {
 
     @NSManaged public var text: String?
     @NSManaged public var date: NSDate?
+    @NSManaged public var isSender: Bool
     @NSManaged public var friend: Friend?
 
 }
