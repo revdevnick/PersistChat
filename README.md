@@ -1,4 +1,4 @@
-##PersistChat - mobile app using CoreData
+#PersistChat - mobile chat app using CoreData
 
 
 This mobile application's model is rooted in CoreData and the application mimicks the Facebook Messenger application.
