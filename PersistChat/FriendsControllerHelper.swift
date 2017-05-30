@@ -75,19 +75,19 @@ extension PersistChatController {
             craig.name = "Craig Federighi"
             craig.profileImageName = "craigfederighi"
             
-            PersistChatController.createMessageWithText(text: "Good morning. Wow! It’s wonderful to be chatting with the best iOS developer in the known world.", friend: craig, minutesAgo: 5, context: context)
+            _ = PersistChatController.createMessageWithText(text: "Good morning. Wow! It’s wonderful to be chatting with the best iOS developer in the known world.", friend: craig, minutesAgo: 5, context: context)
             
             let stephen = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             stephen.name = "Stephen Amell"
             stephen.profileImageName = "stephenamell"
             
-            PersistChatController.createMessageWithText(text: "Nick, I'm being sinceriously now.", friend: stephen, minutesAgo: 60 * 24, context: context)
+            _ = PersistChatController.createMessageWithText(text: "Nick, I'm being sinceriously now.", friend: stephen, minutesAgo: 60 * 24, context: context)
             
             let clark = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             clark.name = "Clark Gregg"
             clark.profileImageName = "clarkgregg"
             
-            PersistChatController.createMessageWithText(text: "I smell something burning...", friend: clark, minutesAgo: 8 * 60 * 24, context: context)
+            _ = PersistChatController.createMessageWithText(text: "I smell something burning...", friend: clark, minutesAgo: 8 * 60 * 24, context: context)
 
             
             do {
@@ -105,13 +105,13 @@ extension PersistChatController {
         james.name = "James Gunn"
         james.profileImageName = "jamesgunn"
         
-        PersistChatController.createMessageWithText(text: "Good morning...", friend: james, minutesAgo: 3, context: context)
-        PersistChatController.createMessageWithText(text: "Hello, how are you? I hope you're having a fine day.", friend: james, minutesAgo: 2, context: context)
-        PersistChatController.createMessageWithText(text: "Just finished GOTGV2! I put three years of blood, sweat and tears into this movie to make it awesome! You're going to love Baby Groot's dialogue.", friend: james, minutesAgo: 1, context: context)
-        PersistChatController.createMessageWithText(text: "Have you seen the movie?", friend: james, minutesAgo: 1, context: context)
-        PersistChatController.createMessageWithText(text: "Yes! I have seen Guardians Vol 2. It was awesome.", friend: james, minutesAgo: 1, context: context, isSender: true)
-        PersistChatController.createMessageWithText(text: "What was your favorite segment of the film?", friend: james, minutesAgo: 1, context: context)
-        PersistChatController.createMessageWithText(text: "Peter and Yondu's dialogue at the end. ''I'm Mary Poppins yall!'', was my favorite line. 😂", friend: james, minutesAgo: 1, context: context, isSender: true)
+        _ = PersistChatController.createMessageWithText(text: "Good morning...", friend: james, minutesAgo: 3, context: context)
+        _ = PersistChatController.createMessageWithText(text: "Hello, how are you? I hope you're having a fine day.", friend: james, minutesAgo: 2, context: context)
+        _ = PersistChatController.createMessageWithText(text: "Just finished GOTGV2! I put three years of blood, sweat and tears into this movie to make it awesome! You're going to love Baby Groot's dialogue.", friend: james, minutesAgo: 1, context: context)
+        _ = PersistChatController.createMessageWithText(text: "Have you seen the movie?", friend: james, minutesAgo: 1, context: context)
+        _ = PersistChatController.createMessageWithText(text: "Yes! I have seen Guardians Vol 2. It was awesome.", friend: james, minutesAgo: 1, context: context, isSender: true)
+        _ = PersistChatController.createMessageWithText(text: "What was your favorite segment of the film?", friend: james, minutesAgo: 1, context: context)
+        _ = PersistChatController.createMessageWithText(text: "Peter and Yondu's dialogue at the end. ''I'm Mary Poppins yall!'', was my favorite line. 😂", friend: james, minutesAgo: 1, context: context, isSender: true)
         
     }
     
